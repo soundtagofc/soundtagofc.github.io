@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Звук по клику</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #fullScreenButton {
+      width: 100vw; /* Занимает всю ширину видимой области */
+      height: 100vh; /* Занимает всю высоту видимой области */
+      border: none; /* Убираем границу */
+      background: none; /* Убираем фон */
+      cursor: pointer; /* Курсор в виде руки */
+    }
+  </style>
+</head>
+<body>
+
+  <button id="fullScreenButton"></button>
+
+  <script>
+    const soundFile = "sound.mp3"; // ЗАМЕНИТЕ ЭТО НА ПРАВИЛЬНЫЙ ПУТЬ К ВАШЕМУ ЗВУКОВОМУ ФАЙЛУ!
+
+    const fullScreenButton = document.getElementById("fullScreenButton");
+
+    fullScreenButton.addEventListener("click", function() {
+      playSound();
+    });
+
+    function playSound() {
+      try {
+        const audio = new Audio(soundFile);
+        audio.play();
+      } catch (error) {
+        console.error("Ошибка воспроизведения звука:", error);
+        alert("Произошла ошибка при воспроизведении звука. Пожалуйста, проверьте консоль разработчика (F12).");
+      }
+    }
+  </script>
+
+</body>
+</html>
